@@ -6,7 +6,7 @@
 <!-- By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+       -->
 <!--                                              +#+#+#+#+#+   +#+          -->
 <!-- Created: 2015/02/06 08:49:23 by ngoguey           #+#    #+#            -->
-<!-- Updated: 2015/02/06 11:22:05 by ngoguey          ###   ########.fr      -->
+<!-- Updated: 2015/02/06 11:40:53 by ngoguey          ###   ########.fr      -->
 <!--                                                                         -->
 <!-- *********************************************************************** -->
 
@@ -16,6 +16,11 @@
 	<title>Tableau P&#233;riodique</title>
 	<meta http-equiv="Content-Type" content="test/html; charset=UTF-8" />
 	<style type="text/css">
+	  #container{
+	  background-image:url(http://i.imgur.com/3K9OeIL.gif);
+      background-position:140px 0px;
+	  background-repeat: no-repeat;
+	  }
 	  .topDcell{
 	  width:60px;
 	  height:18px;
@@ -74,7 +79,7 @@
 	</style>
   </head>
   <body>
-	<table cellspacing="0px">
+	<table id="container" cellspacing="1px">
 	  <tr>
 		<th class="topcell">P&#233;riode</th>
 		<th class="topcell">I</th>
@@ -215,8 +220,7 @@
 		<th class="cell cell-yellow"><p class="weight">294,2</p>Uuo<p class="atom-id">118</p></th>
 	  </tr>
 	  <tr>
-		<th class="cell"></th>
-		<th colspan="19" />
+		<th class="cell" colspan="19" />
 	  </tr>
 	  <tr>
 		<th colspan="4" />
