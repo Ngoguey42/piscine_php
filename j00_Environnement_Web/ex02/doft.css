@@ -1,0 +1,52 @@
+body{
+	margin: 0px;
+	background-color: #505050;
+}
+.main-box{
+	width: 1350px;
+	margin: 0 auto;
+}
+.top-box{
+	background-color: #909090;
+	
+}
+.left-box{
+	background-color: #909090;
+	
+}
+.right-box{
+	background-color: #909090;
+	
+}
+
+.bottom-box{
+	background-color: #8CFD8E;
+}
+
+.top-text{
+	height:135px;
+	margin: auto 0;
+}
+
+.loupe{
+	height:150px;
+	float:right;
+	padding-top: 5px;
+}
+
+.top-box-right{
+	float: right;
+	
+}
+
+.reload{
+	float: right;
+	width: 20px;
+	padding-top: 10px;
+	padding-right: 10px;
+}
+
+.close{
+	width: 20px;
+	padding-top: 105px;
+}
