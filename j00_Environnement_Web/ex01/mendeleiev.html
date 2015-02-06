@@ -6,7 +6,7 @@
 <!-- By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+       -->
 <!--                                              +#+#+#+#+#+   +#+          -->
 <!-- Created: 2015/02/06 08:49:23 by ngoguey           #+#    #+#            -->
-<!-- Updated: 2015/02/06 09:32:52 by ngoguey          ###   ########.fr      -->
+<!-- Updated: 2015/02/06 10:39:56 by ngoguey          ###   ########.fr      -->
 <!--                                                                         -->
 <!-- *********************************************************************** -->
 
@@ -16,35 +16,56 @@
 	<title>Tableau P&#233;riodique</title>
 	<meta http-equiv="Content-Type" content="test/html; charset=UTF-8" />
 	<style type="text/css">
-	  #topcell{
+	  .topcell{
 	  width:60px;
 	  height:18px;
 	  }
-	  #leftcell{
+	  .cell{
+	  margin:0;
+	  font-size:30px;
+	  height: 70px;
+	  min-width: 60px;
+	  }
+	  .leftcell{
 	  font-size:20px;
 	  }
-	  #cell{
-	  max-width: 60px;
-	  max-height: 70px;
-	  height: 70px;
-	  font-size:30px;
+	  .cell-orange{
+	  background-color:orange;
 	  }
-	  #cell-h{
-	  height:inherit;
-	  background-color:#FF9900;
+	  .cell-yellow{
+	  background-color:yellow;
 	  }
-	  #weight{
+	  .cell-green{
+	  background-color:green;
+	  }
+	  .cell-pink{
+	  background-color:pink;
+	  }
+	  .cell-grey{
+	  background-color:grey;
+	  }
+	  .cell-blue{
+	  background-color:blue;
+	  }
+	  .cell-purple{
+	  background-color:purple;
+	  }
+	  .cell-gold{
+	  background-color:gold;
+	  }
+	  .weight{
 	  float:top;
-	  font-size:11px;
-	  background-color:#FF9999;
+	  font-size:12px;
 	  text-align:right;
+	  margin:0;
 	  padding-right: 10px;
 	  }
-	  #atom-id{
+	  .atom-id{
 	  float: bottom;
-	  font-size: 11px;
+	  font-size: 12px;
 	  text-align: left;
 	  padding-left: 10px;
+	  margin:0;
 	  }
 	  body{
 	  margin: 10px;
@@ -53,31 +74,191 @@
 	</style>
   </head>
   <body>
-	<table>
+	<table cellspacing="0px">
 	  <tr>
-		<th id="topcell">P&#233;riode</th>
-		<th id="topcell">I</th>
-		<th id="topcell">II</th>
-		<th id="topcell">III</th>
-		<th id="topcell">IV</th>
-		<th id="topcell">V</th>
-		<th id="topcell">VI</th>
-		<th id="topcell">VII</th>
-		<th id="topcell">VIII</th>
-		<th id="topcell">IX</th>
-		<th id="topcell">X</th>
-		<th id="topcell">XI</th>
-		<th id="topcell">XII</th>
-		<th id="topcell">XIII</th>
-		<th id="topcell">XIV</th>
-		<th id="topcell">XV</th>
-		<th id="topcell">XVI</th>
-		<th id="topcell">XVII</th>
-		<th id="topcell">XVIII</th>
+		<th class="topcell">P&#233;riode</th>
+		<th class="topcell">I</th>
+		<th class="topcell">II</th>
+		<th class="topcell">III</th>
+		<th class="topcell">IV</th>
+		<th class="topcell">V</th>
+		<th class="topcell">VI</th>
+		<th class="topcell">VII</th>
+		<th class="topcell">VIII</th>
+		<th class="topcell">IX</th>
+		<th class="topcell">X</th>
+		<th class="topcell">XI</th>
+		<th class="topcell">XII</th>
+		<th class="topcell">XIII</th>
+		<th class="topcell">XIV</th>
+		<th class="topcell">XV</th>
+		<th class="topcell">XVI</th>
+		<th class="topcell">XVII</th>
+		<th class="topcell">XVIII</th>
 	  </tr>
-	  <tr id="cell">
-		<th id="leftcell">1</th>
-		<th id="cell-h"><p id="weight">1.0</p>H<p id="atom-id">1</p></th>
+	  <tr>
+		<th class="cell leftcell">1</th>
+		<th class="cell cell-orange"><p class="weight">1.0</p>H<p class="atom-id">1</p></th>
+		<th colspan="16" />
+		<th class="cell cell-yellow"><p class="weight"></p>He<p class="atom-id"></p></th>
+	  </tr>
+	  <tr>
+		<th class="cell leftcell">2</th>
+		<th class="cell cell-green"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-green"><p class="weight"></p><p class="atom-id"></p></th>
+		<th colspan="10" />
+		<th class="cell cell-pink"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-pink"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-pink"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-pink"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-pink"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-yellow"><p class="weight"></p><p class="atom-id"></p></th>
+	  </tr>
+	  <tr>
+		<th class="cell leftcell">3</th>
+		<th class="cell cell-green"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-green"><p class="weight"></p><p class="atom-id"></p></th>
+		<th colspan="10" />
+		<th class="cell cell-grey"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-pink"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-pink"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-pink"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-pink"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-yellow"><p class="weight"></p><p class="atom-id"></p></th>
+	  </tr>
+	  <tr>
+		<th class="cell leftcell">4</th>
+		<th class="cell cell-green"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-green"><p class="weight"></p><p class="atom-id"></p></th>
+
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+
+		<th class="cell cell-grey"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-grey"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-pink"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-pink"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-pink"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-yellow"><p class="weight"></p><p class="atom-id"></p></th>
+	  </tr>
+	  <tr>
+		<th class="cell leftcell">5</th>
+		<th class="cell cell-green"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-green"><p class="weight"></p><p class="atom-id"></p></th>
+
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+
+		<th class="cell cell-grey"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-grey"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-grey"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-pink"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-pink"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-yellow"><p class="weight"></p><p class="atom-id"></p></th>
+	  </tr>
+	  <tr>
+		<th class="cell leftcell">6</th>
+		<th class="cell cell-green"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-green"><p class="weight"></p><p class="atom-id"></p></th>
+
+		<th class="cell cell-gold"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+
+		<th class="cell cell-grey"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-grey"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-grey"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-grey"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-pink"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-yellow"><p class="weight"></p><p class="atom-id"></p></th>
+	  </tr>
+	  <tr>
+		<th class="cell leftcell">7</th>
+		<th class="cell cell-green"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-green"><p class="weight"></p><p class="atom-id"></p></th>
+
+		<th class="cell cell-purple"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-blue"><p class="weight"></p><p class="atom-id"></p></th>
+
+		<th class="cell cell-grey"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-grey"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-grey"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-grey"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-grey"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-yellow"><p class="weight"></p><p class="atom-id"></p></th>
+	  </tr>
+	  <tr>
+		<th class="cell"></th>
+		<th colspan="19" />
+	  </tr>
+	  <tr>
+		<th colspan="4" />
+		<th class="cell cell-gold"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-gold"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-gold"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-gold"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-gold"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-gold"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-gold"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-gold"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-gold"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-gold"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-gold"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-gold"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-gold"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-gold"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-gold"><p class="weight"></p><p class="atom-id"></p></th>
+	  </tr>
+	  <tr>
+		<th colspan="4" />
+		<th class="cell cell-purple"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-purple"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-purple"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-purple"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-purple"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-purple"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-purple"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-purple"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-purple"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-purple"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-purple"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-purple"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-purple"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-purple"><p class="weight"></p><p class="atom-id"></p></th>
+		<th class="cell cell-purple"><p class="weight"></p><p class="atom-id"></p></th>
+		
+	  </tr>
 	</table>
   </body>
 </body>
