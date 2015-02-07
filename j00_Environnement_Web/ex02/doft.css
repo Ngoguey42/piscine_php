@@ -3,50 +3,75 @@ body{
 	background-color: #505050;
 }
 .main-box{
-	width: 1350px;
-	margin: 0 auto;
+	margin: 18px 0 0 237px;
 }
 .top-box{
 	background-color: #909090;
-	
+	width: 1446px;
+	height: 139px;
+	box-shadow: 10px 10px 10px black;
+	border-radius: 10px;
+}
+.side-box{
+	background-color: #909090;
+	width: 143px;
+	height: 432px;
+	box-shadow: 10px 10px 10px black;
+	border-radius: 10px;
 }
 .left-box{
-	background-color: #909090;
-	
+	float: left;
+	margin-left: 31px;
+	margin-top: 20px;
 }
 .right-box{
 	background-color: #909090;
 	
 }
-
+.central-box{
+	background-color: #909090;
+	float: left;
+	width: 1038px;
+	height: 592px;
+	margin-left: 30px;
+	margin-top: 10px;
+	box-shadow: 10px 10px 10px black;
+	border-radius: 10px;
+}
+.clusters{
+	margin-left: 10px;
+	margin-top: 9px;
+	height: 573px;
+}
 .bottom-box{
 	background-color: #8CFD8E;
 }
-
 .top-text{
-	height:135px;
-	margin: auto 0;
+	height:112px;
+	padding-top: 9px;
+	padding-left: 10px;
 }
-
 .loupe{
-	height:150px;
-	float:right;
-	padding-top: 5px;
-}
-
-.top-box-right{
 	float: right;
-	
+	position: relative;
+	height: 150px;
+	position: relative;
+	top: 9px;
+	right: -10px;
 }
-
 .reload{
 	float: right;
+	position: relative;
 	width: 20px;
-	padding-top: 10px;
-	padding-right: 10px;
+	position: relative;
+	top: 10px;
+	left: -10px;
 }
-
 .close{
-	width: 20px;
-	padding-top: 105px;
+	float: right;
+	position: relative;
+	width: 21px;
+	position: relative;
+	top: 108px;
+	left: 10px;
 }
