@@ -2,6 +2,20 @@ body{
 	margin: 0px;
 	background-color: #505050;
 }
+input[type="text"] {
+	width: 383px;
+	margin-left: 2px;
+	margin-right: 12px;
+	margin-top: 3px;
+}
+input[type="submit"] {
+	width: 78px;
+	margin-left: -6px;
+	margin-top: 3px;
+	font-family: Arial, Helvetica, serif;
+	letter-spacing: 1px;
+	font-size: 13px;
+}
 .main-box{
 	margin: 18px 0 0 237px;
 	width: 1446px;
@@ -78,6 +92,22 @@ body{
 	background-color: #909090;
 	margin-right: 30px;
 	margin-top: 10px;
+	text-align:center;
+}
+.book{
+	width: 72px;
+	margin-top: 14px;
+	margin-left: 0px;
+}
+.towel{
+	width: 72px;
+	margin-top: 5px;
+}
+.wall{
+	width: 125px;
+	height: 72px;
+	margin-left: 9px;
+	background-image: url(resources/brick.jpg);
 }
 /* CENTER */
 .central-box{
@@ -105,4 +135,22 @@ body{
 	margin-top: -78px;
 	box-shadow: 10px 10px 10px black;
 	border-radius: 10px;
+}
+.bottom-box-content{
+	font-size: 16px;
+	font-family: Arial, Helvetica, serif;
+	margin-left: 10px;
+	margin-top: 2px;
+	letter-spacing: 1px;
+	
+}
+.bigtext {
+	font-size: 34px;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+.redshadow {
+	text-shadow: 6px 6px 6px red;
+}
+.italic{
+	font-style:italic
 }
