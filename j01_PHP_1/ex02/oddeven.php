@@ -3,17 +3,22 @@
 while (1)
 {
 	echo "Entrez un nombre: ";
-	$line = fscanf(STDIN, "%s\n");
+	$line = fgets(STDIN);
 	if (feof(STDIN))
+		exit("\n");
+	if (ereg("^[[:space:]]*".
+			 "([\+\-]?)([0-9]+)".
+			 "\n?$", $line, $tab))
 	{
-		print("\n");
-		break ;
+		if ($tab[2] % 2)
+			echo "Le chiffre $tab[1]$tab[2] est Impair\n";
+		else
+			echo "Le chiffre $tab[1]$tab[2] est Pair\n";		
 	}
-	if (!is_numeric($line[0]))
-		echo "'$line[0]' n'est pas un chiffre\n";
-	else if ($line[0] % 2)
-		echo "Le chiffre $line[0] est Impair\n";
 	else
-		echo "Le chiffre $line[0] est Pair\n";
+	{
+		$line = substr($line, 0, -1);
+		echo "'$line' n'est pas un chiffre\n";
+	}
 }
 ?>
