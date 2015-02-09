@@ -1,11 +1,15 @@
 #!/usr/bin/php
 <?PHP
-	function ft_split($str)
+function ft_split($str)
+{
+	$str = trim($str);
+	if (strlen($str) == 0)
+		return (array());
+	do
 	{
-		// if (!is_string($str))
-			// return ;
-		$tab = explode(" ", $str);
-		sort($tab);
-		return ($tab);
-	}
+		$old = $str;
+		$str = str_replace("  ", " ", $str);
+	} while($str != $old);
+	return (explode(" ", $str));
+}
 ?>
