@@ -2,21 +2,22 @@
 <?php
 if (sizeof($argv) > 1)
 {
-	if (ereg("[A-Z]?".
-			 "[a-z]+".
-			 " ".
-			 "[1-9]{1,2}".
-			 " ".
-			 "[A-Z]?".
-			 "[a-z]+".
-			 " ".
-			 "[0-9]{4}".
-			 " ".
-			 "[0-9]{2}:".
-			 "[0-9]{2}:".
-			 "[0-9]{2}", $argv[1]))
+	if (preg_match("/[A-Z]?".
+				   "[a-z]+".
+				   " ".
+				   "[1-9]{1,2}".
+				   " ".
+				   "[A-Z]?".
+				   "[^ A-Z]+".
+				   " ".
+				   "[0-9]{4}".
+				   " ".
+				   "[0-9]{2}:".
+				   "[0-9]{2}:".
+				   "[0-9]{2}/", $argv[1]))
 	{
-		setlocale(LC_TIME, "fr_FR");	$ret = strptime($argv[1], "%A %e %B %Y %T");
+		setlocale(LC_TIME, "fr_FR");
+		$ret = strptime($argv[1], "%A %e %B %Y %T");
 		if ($ret == false)
 			print("Wrong Format\n");
 		else
