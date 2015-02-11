@@ -11,20 +11,19 @@
 	  Et ca aussi
 	  <img src="wrong.image" title="et encore ca">
 	  lol!
+	  <img src="wrong.image2" title="et encore ca2">
+	  lol2!
 	</a>
 
-	<a href=http://www.riven.com>
-	  Et ca aussi
-	  <a href=http://www.riven.com>
-		Et ca aussi
-		<img src="wrong.image" title="et encore ca">
-		lol!
-	  </a>
-	  lol!
-	</a>
 
 	<a href=http://cyan.com title="un lien">Ceci est un lien</a>
 
+	<a href=http://cyan.com title="un lien"><caca></caca></a>
+	<a href=http://cyan.com title="un lien">truc<caca></caca>truc</a>
+	<a href=http://cyan.com title="un lien"><caca></caca>truc</a>
+	<a href=http://cyan.com title="un lien">truc<caca></caca></a>
+
+	
 
   </body>
 </html>
