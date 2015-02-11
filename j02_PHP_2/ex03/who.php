@@ -14,9 +14,12 @@ foreach ($tab as $v)
 		continue ;
 	printf("%-8s %-8s date\n", $myuid_s, $v);
 	/* print("/dev/$v"); */
-	print(date("D j H:i\n", $stats[8]));
-	print(date("D j H:i\n", $stats[9]));
-	print(date("D j H:i\n", $stats[10]));
+	print(date("M j H:i\n", $stats[8]));
+	print(date("M j H:i\n", $stats[9]));
+	print(date("M j H:i\n", $stats[10]));
+	print(date("M j H:i\n", filemtime("/dev/$v")));
+	print(date("M j H:i\n", fileatime("/dev/$v")));
+	print(date("M j H:i\n", filectime("/dev/$v")));
 	/* print_r($stats); */
 	/* print("\n"); */
 }
