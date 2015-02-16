@@ -1,15 +1,12 @@
 #!/usr/bin/php
-<?PHP
+<?php
 if (sizeof($argv) > 2)
 {
-	$ref = $argv[1];
-	foreach($argv as $k => $v)
-	{
-		if ($k < 3)
-			continue ;
-		if (ereg("^(.+)\:(.*)$", $v, $tab) && $tab[1] == $ref)
-			$save = $tab[2];
-	}
+	array_shift($argv);
+	$ref = array_shift($argv);
+	foreach($argv as $v)
+		if (preg_match("/^$ref\:(.*)$/", $v, $tab))
+			$save = $tab[1];
 	if ($save != null)
 		print("$save\n");
 }

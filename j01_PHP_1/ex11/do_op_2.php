@@ -1,5 +1,5 @@
 #!/usr/bin/php
-<?PHP
+<?php
 function do_op($l , $o, $r)
 {
 	switch ($o)
@@ -18,17 +18,17 @@ function do_op($l , $o, $r)
 	return (null);
 }
 
-if (sizeof($argv) != 2)
+if (count($argv) != 2)
 	print("Incorrect Parameters\n");
 else
 {
-	if (ereg("^[[:space:]]*".
+	if (preg_match("/^[[:space:]]*".
 			 "([\+\-]?)([0-9]*)".
 			 "[[:space:]]*".
 			 "([\+\%\*\/\-])".
 			 "[[:space:]]*".
 			 "([\+\-]?)([0-9]*)".
-			 "[[:space:]]*$", $argv[1], $tab))
+			 "[[:space:]]*$/", $argv[1], $tab))
 	{
 		$result = do_op($tab[1].$tab[2], $tab[3], $tab[4].$tab[5]);
 		if (gettype($result) == "integer")

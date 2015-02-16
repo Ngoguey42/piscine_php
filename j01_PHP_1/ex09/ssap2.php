@@ -6,7 +6,7 @@ function is_number($a)
 }
 function is_alphabetical($a)
 {
-	return (($a >= 'a' && $a <= 'z') || ($a >= 'A' && $a <= 'Z'));
+	return ($a >= 'a' && $a <= 'z');
 }
 function ascii_sort($a, $b)
 {
@@ -34,39 +34,33 @@ function sort_func($a, $b)
 		return (0);
 	$at = str_split($a);
 	$bt = str_split($b);
-	for ($i = 0; $i < min(sizeof($at), sizeof($bt)); $i++)
+	for ($i = 0; $i < min(count($at), count($bt)); $i++)
 	{
 		if ($at[$i] != $bt[$i])
 			return (char_sort_func($at[$i], $bt[$i]));
 	}
-	if (sizeof($at) < sizeof($bt))
+	if (count($at) < count($bt))
 		return (-1);
 	return (1);
 }
 function epur_totab($str)
 {
-	$str = trim($str);
+	$str = preg_replace("/ +/", " ", trim($str));
 	if (strlen($str) == 0)
 		return (array());
-	do
-	{
-		$old = $str;
-		$str = str_replace("  ", " ", $str);
-	} while($str != $old);
 	return (explode(" ", $str));
 }
 
-if (sizeof($argv) > 1)
+if (count($argv) > 1)
 {
 	$tab = array();
+	array_shift($argv);
 	foreach ($argv as $k => $v)
-		if ($k)
-			$tab = array_merge($tab, epur_totab($v));
-	if (sizeof($tab) > 0)
+		$tab = array_merge($tab, epur_totab($v));
+	if (count($tab) > 0)
 	{
 		usort($tab, "sort_func");
-		foreach ($tab as $v)
-			print("$v\n");
+		echo implode("\n", $tab)."\n";
 	}
 }
 ?>

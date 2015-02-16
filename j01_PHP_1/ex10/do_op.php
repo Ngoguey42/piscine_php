@@ -1,5 +1,5 @@
 #!/usr/bin/php
-<?PHP
+<?php
 function do_op($l , $o, $r)
 {
 	switch ($o)
@@ -18,12 +18,12 @@ function do_op($l , $o, $r)
 	return (null);
 }
 
-if (sizeof($argv) != 4)
+if (count($argv) != 4)
 	print("Incorrect Parameters\n");
 else
 {
 	foreach($argv as $k => $v)
-		$argv[$k] = trim($v);
+		$argv[$k] = trim($v, " \t");
 	$result = do_op($argv[1], $argv[2], $argv[3]);
 	if (gettype($result) == "integer")
 		printf("%d\n", do_op($argv[1], $argv[2], $argv[3]));
