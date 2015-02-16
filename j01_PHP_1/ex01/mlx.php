@@ -1,6 +1,4 @@
 #!/usr/bin/php
-<?PHP
-for ($i = 0; $i < 1000; $i++)
-	echo "x";
-echo "\n";
+<?php
+echo str_repeat("x", 1000)."\n";
 ?>

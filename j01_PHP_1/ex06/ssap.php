@@ -1,28 +1,23 @@
 #!/usr/bin/php
-<?PHP
+<?php
 function epur_totab($str)
 {
-	$str = trim($str);
-    if (strlen($str) == 0)
-        return (array());
-	do
-	{
-		$old = $str;
-		$str = str_replace("  ", " ", $str);
-	} while($str != $old);
+	$str = preg_replace("/ +/", " ", trim($str));
+	if (strlen($str) == 0)
+		return (array());
 	return (explode(" ", $str));
 }
-if (sizeof($argv) > 1)
+
+if (count($argv) > 1)
 {
 	$tab = array();
+	array_shift($argv);
 	foreach ($argv as $k => $v)
-		if ($k)
-			$tab = array_merge($tab, epur_totab($v));
-	if (sizeof($tab) > 0)
+		$tab = array_merge($tab, epur_totab($v));
+	if (count($tab) > 0)
 	{
 		sort($tab);
-		foreach ($tab as $v)
-			print("$v\n");
+		echo implode("\n", $tab)."\n";
 	}
 }
 ?>

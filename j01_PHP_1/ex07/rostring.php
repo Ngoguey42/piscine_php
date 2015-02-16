@@ -1,41 +1,17 @@
 #!/usr/bin/php
-<?PHP
+<?php
 function epur_totab($str)
 {
-	$str = trim($str);
+	$str = preg_replace("/ +/", " ", trim($str));
 	if (strlen($str) == 0)
-        return (array());
-	do
-	{
-		$old = $str;
-		$str = str_replace("  ", " ", $str);
-	} while($str != $old);
+		return (array());
 	return (explode(" ", $str));
 }
 
-if (sizeof($argv) > 1)
+if (count($argv) > 1)
 {
 	$tab = epur_totab($argv[1]);
-	$t = 0;
-	foreach ($tab as $k => $v)
-	{
-		if ($k)
-		{
-			if ($t)
-				print(" ");
-			else
-				$t = 1;
-			print($v);
-		}
-	}
-	if (sizeof($tab) > 0)
-	{
-		if ($t)
-				print(" ");
-		else
-			$t = 1;
-		print($tab[0]);
-		print("\n");
-	}
+	if (array_push($tab, array_shift($tab)))
+		echo implode(" ", $tab)."\n";
 }
 ?>
