@@ -2,7 +2,7 @@
 <?php
 if (sizeof($argv) > 1)
 {
-	if (preg_match("/[A-Z]?".
+	if (preg_match("/^[A-Z]?".
 				   "[a-z]+".
 				   " ".
 				   "[1-9]{1,2}".
@@ -14,7 +14,7 @@ if (sizeof($argv) > 1)
 				   " ".
 				   "[0-9]{2}:".
 				   "[0-9]{2}:".
-				   "[0-9]{2}/", $argv[1]))
+				   "[0-9]{2}$/", $argv[1]))
 	{
 		setlocale(LC_TIME, "fr_FR");
 		$ret = strptime($argv[1], "%A %e %B %Y %T");
@@ -29,6 +29,6 @@ if (sizeof($argv) > 1)
 		}
 	}
 	else
-		print("Wrong Format\n");
+		print("Wrong Format1\n");
 }
 ?>

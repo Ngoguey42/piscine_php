@@ -22,13 +22,13 @@ if (count($argv) != 2)
 	print("Incorrect Parameters\n");
 else
 {
-	if (preg_match("/^[[:space:]]*".
+	if (preg_match("/^[ \t]*".
 			 "([\+\-]?)([0-9]*)".
-			 "[[:space:]]*".
+			 "[ \t]*".
 			 "([\+\%\*\/\-])".
-			 "[[:space:]]*".
+			 "[ \t]*".
 			 "([\+\-]?)([0-9]*)".
-			 "[[:space:]]*$/", $argv[1], $tab))
+			 "[ \t]*$/", $argv[1], $tab))
 	{
 		$result = do_op($tab[1].$tab[2], $tab[3], $tab[4].$tab[5]);
 		if (gettype($result) == "integer")

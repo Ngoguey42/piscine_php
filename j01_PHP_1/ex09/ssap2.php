@@ -45,7 +45,7 @@ function sort_func($a, $b)
 }
 function epur_totab($str)
 {
-	$str = preg_replace("/ +/", " ", trim($str));
+	$str = preg_replace("/ +/", " ", trim($str, " "));
 	if (strlen($str) == 0)
 		return (array());
 	return (explode(" ", $str));
