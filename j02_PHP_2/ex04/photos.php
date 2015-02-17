@@ -1,87 +1,108 @@
 #!/usr/bin/php
 <?php
-	function GetData($url)
+function GetData($url)
+{
+	if (!($session = curl_init($url)))
 	{
-		if (!($session = curl_init($url)))
-		{
-			curl_close($session);
-			return (false);
-		}
-		if (!curl_setopt($session, CURLOPT_RETURNTRANSFER, 1))
-		{
-			curl_close($session);
-			return (false);
-		}
-		if (!($data = curl_exec($session)))
-		{
-			curl_close($session);
-			return (false);
-		}
 		curl_close($session);
-		// var_dump($data);
-		return ($data);
+		return (false);
 	}
-	function GetRawImgUrls($page)
+	if (!curl_setopt($session, CURLOPT_RETURNTRANSFER, 1))
 	{
-		preg_match_all(
+		curl_close($session);
+		return (false);
+	}
+	if (!($data = curl_exec($session)))
+	{
+		curl_close($session);
+		return (false);
+	}
+	curl_close($session);
+	// var_dump($data);
+	return ($data);
+}
+function GetRawImgUrls($page)
+{
+	preg_match_all(
 		'/<'.
-		'[[:space:]]*'.
-		'img'.
-		'[^>]*[[:space:]]'.
-		'src=(?:[\"\'])'.
-		'([^$1]+?)'.
-		'[\"\']'.
-		'/i', $page, $tab);
-		// var_dump($tab);
-		if (count($tab[1]) == 0)
-			return (false);
-		return ($tab[1]);
-	}
-	function GetImgUrl($imgurl, $siteurl)
+		'\s*img'.
+		'[^>]*'.
+		'\ssrc=([\"\'])'.
+		'([^\1]+?)'.
+		'\1'.
+		'/i',
+		$page, $tab);
+	/* print_r($tab); */
+	/* exit ; */
+	if (count($tab[2]) == 0)
+		return (false);
+	return ($tab[2]);
+}
+function GetRoot_noProtocol($url)
+{
+	if (preg_match("/^[^\:\/]+\:\/\/(.*)$/", $url, $tab))
+		return (substr($tab[1], 0, strcspn($tab[1], "/")));
+	return (substr($url, 0, strcspn($siteurl, "/")));
+}
+function GetRoot($url)
+{
+	preg_match("/^([^\:\/]+\:\/\/)?(.*?)$/", $url, $tab);
+	return ($tab[1].
+			substr($tab[2], 0, strcspn($tab[2], "/")));
+}
+function GetImgUrl($imgurl, $siteurl)
+{
+	if (preg_match("/^[^\:\/]+\:\/\//", $imgurl))
+		/* Full url OK */
+		return ($imgurl); 
+	elseif ($imgurl[0] == '/')
 	{
-		/*
-		http://www.tomshardware.fr/
-		<img src="//www.distilnetworks.com/nginx_status/images/theft-bot-home.png""
-		
-		http://www.google.fr/
-		<img src="/images/icons/product/chrome-48.png""
-		
-		*/
-		if (preg_match("/^[^\:\/]+\:\/\//", $imgurl))
-			return ($imgurl);
-		else if ($imgurl[0] == '/')
-			return ("$siteurl/$imgurl");
-		else
-			return ("$siteurl/$imgurl");
+		if ($imgurl[1] == '/')
+		{
+			if (preg_match("/^[^\:\/]+\:\/\//", $siteurl))
+				/* Relative url (double slash) OKhome OK!home */
+				return (substr($siteurl, 0, strcspn($siteurl, "/")).
+						$imgurl); 
+			/* (double slash, missing protocol) */
+			return ("");
+		}
+		/* Relative url (single slash) OKhome OK!home */
+		return (GetRoot($siteurl).$imgurl); 
 	}
-	function DownloadImage($imgurl, $siteurl, $dirname)
-	{
-		$imgurl = GetImgUrl($imgurl, $siteurl);
-		var_dump($imgurl);
-		if (!($data = GetData($imgurl)))
-			return ;
-		var_dump($dirname."/".basename($imgurl));
-		// return ;
-		if (!($fd = fopen($dirname."/".basename($imgurl), 'w')))
-			return ;
-		fwrite($fd, $data);
-		fclose($fd);
-		// var_dump($data);
-		;
-	}
-	
-	if (count($argv) > 1)
-	{
-		if (!($page = GetData($argv[1])))
-			exit ;
-		if (!($rawImgs = GetRawImgUrls($page)))
-			exit ;
-		$dirname = preg_replace("/^([^\:\/]+\:\/\/)/", "", $argv[1]);
-		$dirname = "./".$dirname;
-		if (!is_dir($dirname))
-			mkdir($dirname);
-		foreach ($rawImgs as $v)
-			DownloadImage($v, $argv[1], $dirname);
-		// echo $dirname;
-	}
+	/* Relative url (from page) TOTEST*/
+	return ("$siteurl/$imgurl"); 
+}
+function DownloadImage($imgurl, $siteurl, $dirname)
+{
+	var_dump($imgurl);
+	$imgurl = GetImgUrl($imgurl, $siteurl);
+	var_dump($imgurl);
+	if (!($data = GetData($imgurl)))
+		return ;
+	/* var_dump($dirname."/".basename($imgurl)); */
+	// return ;
+	if (!($fd = fopen($dirname."/".basename($imgurl), 'w')))
+		return ;
+	fwrite($fd, $data);
+	fclose($fd);
+	// var_dump($data);
+	;
+}
+
+if (count($argv) > 1)
+{
+	if (!($page = GetData($argv[1])))
+		exit ;
+	/* echo $page; */
+	/* exit ; */
+	if (!($rawImgs = GetRawImgUrls($page)))
+		exit ;
+	$dirname = "./".GetRoot_noProtocol($argv[1]);
+	var_dump($dirname);
+	if (!is_dir($dirname))
+		mkdir($dirname);
+	foreach ($rawImgs as $v)
+		DownloadImage($v, $argv[1], $dirname);
+	// echo $dirname;
+}
 ?>

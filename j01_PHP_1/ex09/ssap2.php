@@ -12,7 +12,7 @@ function ascii_sort($a, $b)
 {
     if ($a == $b)
         return 0;
-	else if ($a < $b)
+	elseif ($a < $b)
 		return (-1);
 	return (1);
 }
@@ -22,7 +22,7 @@ function char_sort_func($a, $b)
 		return (0);
 	if (is_alphabetical($a) != is_alphabetical($b))
 		return is_alphabetical($a) ? -1 : 1;
-	else if (is_number($a) != is_number($b))
+	elseif (is_number($a) != is_number($b))
 		return is_number($a) ? -1 : 1;
 	return (ascii_sort($a, $b));
 }
