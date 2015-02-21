@@ -9,10 +9,7 @@ Class Color
 	public function add(Color $var)
 	{
 		if ($var === null)
-		{
-			echo "Error addition can't be done. (Parameter missing)\n";
 			return ;
-		}
 		return new Color(array('red' => $this->red + $var->red,
 							   'green' => $this->green + $var->green,
 							   'blue' => $this->blue + $var->blue));
@@ -21,10 +18,7 @@ Class Color
 	public function sub(Color $var)
 	{
 		if ($var === null)
-		{
-			echo "Error substraction can't be done. (Parameter missing)\n";
 			return ;
-		}
 		return new Color(array('red' => $this->red - $var->red,
 							   'green' => $this->green - $var->green,
 							   'blue' => $this->blue - $var->blue));
@@ -33,10 +27,7 @@ Class Color
 	public function mult($var)
 	{
 		if ($var === null)
-		{
-			echo "Error multiplication can't be done. (Parameter missing)\n";
 			return ;
-		}
 		return new Color(array('red' => $this->red * $var,
 							   'green' => $this->green * $var,
 							   'blue' => $this->blue * $var));
