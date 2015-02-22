@@ -1,0 +1,25 @@
+<- Vector ---------------------------------------------------------------------
+The Vector Class handles 'xyz' coords, a 'w' weight.
+
+__construct			takes kwargs,	dest mandatory Vector
+									orig optional Vector
+
+getX()				to get X coord
+getY()				to get Y coord
+getZ()				to get Z coord
+getW()				to get W value
+
+					The following methods computes a double and returns it.
+magnitude()			
+dotProduct($rhs)	
+cos($rhs)			
+					The following methods returns new instances of the Vector.
+normalize()			
+add($rhs)			
+sub($rhs)			
+opposite()			
+scalarProduct($k)
+crossProduct($rhs)	
+
+static $verbose		set true for debug
+--------------------------------------------------------------------- Vector ->

@@ -1,0 +1,20 @@
+<- Vertex ---------------------------------------------------------------------
+The Vertex Class handles 'xyz' coords, an 'w' weight, and a 'color' color.
+
+__construct			takes kwargs,	x/y/z/w: optional doubles
+									color: uptionnal Color class
+
+getX()				to get X coord
+getY()				to get Y coord
+getZ()				to get Z coord
+getW()				to get W value
+getColor()			to get Color instance
+
+setX()				to set X coord
+setY()				to set Y coord
+setZ()				to set Z coord
+setW()				to set W value
+setColor()			to set Color instance
+
+static $verbose		set true for debug
+--------------------------------------------------------------------- Vertex ->
