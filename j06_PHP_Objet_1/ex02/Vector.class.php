@@ -110,14 +110,14 @@ Class Vector
 	
 	public function __toString()
 	{
-		$ret = static::class.'( ';
+		$ret = get_called_class().'( ';
 		$t = 0;
 		foreach (get_object_vars($this) as $k => $v)
 		{
 			if ($k[0] == '_')
 			{
 				$key = substr($k, 1);
-				if (method_exists(static::class,
+				if (method_exists(get_called_class(),
 					($funname = 'get'.ucfirst(substr($k, 1)))))
 					$val = $this->$funname();
 				else
@@ -154,8 +154,8 @@ Class Vector
 	
 	public static function doc()
 	{
-		if (file_exists(static::class.".doc.txt"))
-			return file_get_contents(static::class.".doc.txt");
+		if (file_exists(get_called_class().".doc.txt"))
+			return file_get_contents(get_called_class().".doc.txt");
 	}
 }
 ?>
