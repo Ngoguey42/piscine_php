@@ -2,8 +2,8 @@
 
 function catcook()
 {
-	echo "\033[0mcat cook.txt:\033[31m"
-	cat cook.txt
+	echo "\033[0mcat cook.txt: lines 3 + +inf\033[31m"
+	cat cook.txt | tail -n +3
 	echo "\033[0m\n"
 }
 
@@ -28,23 +28,7 @@ curlit -c '?action=set&name=plat&value=choucroute'
 curlit -b '?action=get&name=plat'
 curlit -c '?action=del&name=plat'
 curlit -b '?action=get&name=plat'
-
-
-
-# curl -c cook.txt $url'?action=set&name=plat&value=choucroute'
-# catcook
-
-# curl -c cook.txt $url'?action=set&name=plat2&value=choucroute2'
-# catcook
-
-
-# curl -b cook.txt $url'?action=get&name=plat'
-# catcook
-
-
-# curl -c cook.txt $url'?action=del&name=plat'
-# catcook
-
-
-# curl -b cook.txt $url'?action=get&name=plat'
-# catcook
+curlit -c '?action=set&name=plat&value=choucroute'
+curlit -c '?action=set&name=plat&value=choux'
+curlit -c '?action=set&name=viande&value=unix'
+curlit -b '?action=get&name=plat'
