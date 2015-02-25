@@ -18,9 +18,9 @@ else
 	<head><title>Index</title></head>
 	<body>
 		<form action="index.php" method="get">
-			Identifiant : <input type="text" name="login" placeholder="Identifiant" value="<?= $var1 ?>" />
+			Identifiant : <input placeholder="Identifiant" type="text" name="login" value="<?= $var1 ?>" />
 			<br />
-			Mot de passe: <input type="password" name="passwd" placeholder="Mot de passe" value="<?= $var2 ?>" />
+			Mot de passe: <input placeholder="Mot de passe" type="password" name="passwd" value="<?= $var2 ?>" />
 			<input type="submit" name="submit" value="OK" />
 		</form>
 	</body>
