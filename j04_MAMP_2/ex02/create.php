@@ -19,7 +19,7 @@ function is_in_tab($tab, $login)
 
 if ($_POST['login'] == null || $_POST['passwd'] == null)
 	echo "ERROR\n";
-else if (count($_POST['login']) < 1 || count($_POST['passwd']) < 1)
+else if ($_POST['login'] == '' || $_POST['passwd'] == '')
 	echo "ERROR\n";
 else
 {
