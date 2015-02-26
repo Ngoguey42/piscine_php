@@ -1,6 +1,8 @@
 <?php
 function get_table()
 {
+    if (!file_exists('../private/passwd'))
+		return (array());
 	$ret = file_get_contents('../private/passwd');
 	if ($ret === false)
 		return (array());
@@ -12,7 +14,7 @@ function get_table()
 function is_in_tab($tab, $login)
 {
 	foreach ($tab as $k => $v)
-		if ($k == $login)
+		if ($v['login'] == $login)
 			return (true);
 	return (false);
 }
