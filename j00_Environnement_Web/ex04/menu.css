@@ -2,6 +2,7 @@ body{
 	margin: 0px;
 	background-color: pink;
 }
+/* objet */
 #wrap
 {
 	margin-top:100px;
@@ -12,7 +13,7 @@ body{
 {
 	list-style:none;
 }
-/* a de la liste */
+/* a TOUTES : format */
 #wrap ul a
 {
 	display:block;
@@ -24,18 +25,18 @@ body{
 	padding:0 15px;
 	font-family: Arial, Helvetica, serif;
 }
-/* menu */
+/* entree 0 : format */
 #wrap ul li
 {
 	position:relative;
 	float:left;
 }
-/* mouseover */
+/* mouseover TOUTES */
 #wrap ul li:hover
 {
 	background:#f6f6f6
 }
-/* container des entrees du menu */
+/* entrees TOUTES : format */
 #wrap ul ul
 {
 	display:none;
@@ -43,24 +44,24 @@ body{
 	background:#fff;
 	padding:0
 }
-/* entrees du menu */
+/* entrees TOUTES : largeurs */
 #wrap ul ul li
 {
 	width:182px;
 }
-/* submenu */
+/* entres TOUTES : hauteur */
 #wrap ul ul a
 {
 	line-height:120%;
 	padding:10px 15px
 }
-/* container des entrees du submenu */
+/* expand 2 : position */
 #wrap ul ul ul
 {
 	top:0;
 	left:100%
 }
-/* expand le submenu submenu */
+/* expand TOUTES : display */
 #wrap ul li:hover > ul
 {
 	display:block
