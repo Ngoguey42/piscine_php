@@ -4,15 +4,15 @@ function do_op($l , $o, $r)
 {
 	switch ($o)
 	{
-	case "+":
+		case "+":
 		return ((int)$l + (int)$r);
-	case "-":
+		case "-":
 		return ((int)$l - (int)$r);
-	case "*":
+		case "*":
 		return ((int)$l * (int)$r);
-	case "/":
+		case "/":
 		return ((double)$l / (double)$r);
-	case "%":
+		case "%":
 		return ((int)$l % (int)$r);
 	}
 	return (null);
@@ -25,6 +25,7 @@ else
 	foreach($argv as $k => $v)
 		$argv[$k] = trim($v, " \t");
 	$result = do_op($argv[1], $argv[2], $argv[3]);
+	exit($result.PHP_EOL);
 	if (gettype($result) == "integer")
 		printf("%d\n", do_op($argv[1], $argv[2], $argv[3]));
 	elseif (gettype($result) == "double")

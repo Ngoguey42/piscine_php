@@ -4,15 +4,15 @@ function do_op($l , $o, $r)
 {
 	switch ($o)
 	{
-	case "+":
+		case "+":
 		return ((int)$l + (int)$r);
-	case "-":
+		case "-":
 		return ((int)$l - (int)$r);
-	case "*":
+		case "*":
 		return ((int)$l * (int)$r);
-	case "/":
+		case "/":
 		return ((double)$l / (double)$r);
-	case "%":
+		case "%":
 		return ((int)$l % (int)$r);
 	}
 	return (null);
@@ -23,12 +23,12 @@ if (count($argv) != 2)
 else
 {
 	if (preg_match("/^[ \t]*".
-			 "([\+\-]?)([0-9]*)".
-			 "[ \t]*".
-			 "([\+\%\*\/\-])".
-			 "[ \t]*".
-			 "([\+\-]?)([0-9]*)".
-			 "[ \t]*$/", $argv[1], $tab))
+		"([\+\-]?)([0-9]*)".
+		"[ \t]*".
+		"([\+\%\*\/\-])".
+		"[ \t]*".
+		"([\+\-]?)([0-9]*)".
+		"[ \t]*$/", $argv[1], $tab))
 	{
 		$result = do_op($tab[1].$tab[2], $tab[3], $tab[4].$tab[5]);
 		if (gettype($result) == "integer")
