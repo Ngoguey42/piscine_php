@@ -10,14 +10,14 @@ function epur_totab($str)
 
 if (count($argv) > 1)
 {
-	$tab = array();
 	array_shift($argv);
-	foreach ($argv as $k => $v)
+	$tab = array();
+	foreach ($argv as $v)
 		$tab = array_merge($tab, epur_totab($v));
 	if (count($tab) > 0)
 	{
 		sort($tab);
-		echo implode("\n", $tab)."\n";
+		echo implode(PHP_EOL, $tab).PHP_EOL;
 	}
 }
 ?>
