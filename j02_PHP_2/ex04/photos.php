@@ -25,13 +25,13 @@ function GetRawImgUrls($page)
 {
 	preg_match_all(
 		'/<'.
-		'\s*img'.
-		'[^>]*'.
-		'\ssrc=([\"\'])'.
-		'([^\1]+?)'.
-		'\1'.
-		'/i',
-		$page, $tab);
+			'\s*img'.
+			'[^>]*'.
+			'\ssrc=([\"\'])'.
+			'([^\1]+?)'.
+			'\1'.
+			'/i',
+			$page, $tab);
 	/* print_r($tab); */
 	/* exit ; */
 	if (count($tab[2]) == 0)
@@ -48,7 +48,7 @@ function GetRoot($url)
 {
 	preg_match("/^([^\:\/]+\:\/\/)?(.*?)$/", $url, $tab);
 	return ($tab[1].
-			substr($tab[2], 0, strcspn($tab[2], "/")));
+		substr($tab[2], 0, strcspn($tab[2], "/")));
 }
 function GetImgUrl($imgurl, $siteurl)
 {
@@ -62,7 +62,7 @@ function GetImgUrl($imgurl, $siteurl)
 			if (preg_match("/^[^\:\/]+\:\/\//", $siteurl))
 				/* Relative url (double slash) OKhome OK!home */
 				return (substr($siteurl, 0, strcspn($siteurl, "/")).
-						$imgurl); 
+					$imgurl); 
 			/* (double slash, missing protocol) */
 			return ("");
 		}
@@ -88,15 +88,23 @@ function DownloadImage($imgurl, $siteurl, $dirname)
 	// var_dump($data);
 	;
 }
+/*
+   ./photos.php http://www.42.fr
+   www.42.fr/logo42-site.gif
 
+   ./photos.php http://www.jeuxvideo.com/
+   bcp bcp
+   
+ */
 if (count($argv) > 1)
 {
 	if (!($page = GetData($argv[1])))
-		exit ;
-	/* echo $page; */
+		exit ("Could not retreive $argv[1]".PHP_EOL);
+	
+	/* 	echo $page; */
 	/* exit ; */
 	if (!($rawImgs = GetRawImgUrls($page)))
-		exit ;
+		exit ("Could not find images".PHP_EOL);
 	$dirname = "./".GetRoot_noProtocol($argv[1]);
 	var_dump($dirname);
 	if (!is_dir($dirname))
