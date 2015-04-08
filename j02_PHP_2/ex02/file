@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html><head><title>Nice page</title></head>
-  <body title="nocaps">
-	Hello World
-	<a href=http://cyan.com title="un lien">
-	  Ceci est un lien
+<html><head><title>no</title></head>
+  <body title="no">
+	nono
+	<a href=http://cyan.com title="yes">
+	  yesYES
 	</a>
-	<br />
-	<a>oh noes!!</a>
+	<br /> no
+	<a>no</a> no
 	<a href=http://www.riven.com>
-	  Et ca aussi
-	  <img src="wrong.image" title="et encore ca">
-	  lol!
-	  <img src="wrong.image2" title="et encore ca2">
-	  lol2!
+	  yes
+	  <img src="wrong.image" title="yes">
+	  yes
+	  <img src="wrong.image2" title="yes">
+	  yes
 	</a>
 
+	no
+	<a href=http://cyan.com title="yes">Ceci est un lien</a>
+	no
+	<a href=http://cyan.com title="yes"><caca></caca></a>
+	<a href=http://cyan.com title="yes">yes<caca></caca>yes</a> no
+	<a href=http://cyan.com title="yes"><caca></caca>yes</a>
+	<a href=http://cyan.com title="yes">yes<caca></caca></a> nono
 
-	<a href=http://cyan.com title="un lien">Ceci est un lien</a>
-
-	<a href=http://cyan.com title="un lien"><caca></caca></a>
-	<a href=http://cyan.com title="un lien">truc<caca></caca>truc</a>
-	<a href=http://cyan.com title="un lien"><caca></caca>truc</a>
-	<a href=http://cyan.com title="un lien">truc<caca></caca></a>
-
-	
+	no
 
   </body>
 </html>

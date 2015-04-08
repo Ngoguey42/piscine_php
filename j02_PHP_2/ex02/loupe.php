@@ -18,9 +18,9 @@ function a_content($tab)
 		'/'.'(title=\")([^\"]+)(\")'.'/s', "title", $tab[1]);
 	$content = preg_replace_callback(
 		'/'.
-		'([^<]*)'.
-		'(<[^>]*>)?'.
-		'/s', "content_chunk", $tab[2]);
+			'([^<]*)'.
+			'(<[^>]*>)?'.
+			'/s', "content_chunk", $tab[2]);
 	return ($openning_tag.$content.$tab[3]);
 }
 
@@ -28,20 +28,20 @@ if (count($argv) < 2)
 	exit ;
 $lines = file_get_contents($argv[1]);
 $a_tag_open = '(<[[:space:]]*[aA]'.
-			  '(?:'.
-			  '[[:space:]]*'.
-			  '|'.
-			  '[[:space:]]+[^>]+'.
-			  ')>)';
+	'(?:'.
+	'[[:space:]]*'.
+	'|'.
+	'[[:space:]]+[^>]+'.
+	')>)';
 $a_tag_close = '(<[[:space:]]*\/'.
-			   '[[:space:]]*[aA]'.
-			   '[[:space:]]*>)';
+	'[[:space:]]*[aA]'.
+	'[[:space:]]*>)';
 $tab = preg_replace_callback(
 	'/'.
-	$a_tag_open.
-	'(.*?)'.
-	$a_tag_close.
-	'/s', "a_content", $lines);
+		$a_tag_open.
+		'(.*?)'.
+		$a_tag_close.
+		'/s', "a_content", $lines);
 echo $tab;
 ?>
 
