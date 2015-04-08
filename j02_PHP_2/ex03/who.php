@@ -21,7 +21,7 @@ while ($line = fread($file, 628))
 ksort($tab_results);
 foreach($tab_results as $k => $v)
 {
-	printf("%-8s %-8s %s\n", $myuid_s, $k, date("M  j H:i", $v));
+	printf("%-8s %-8s %s \n", $myuid_s, $k, date("M  j H:i", $v));
 }
 fclose($file);
 ?>
