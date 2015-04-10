@@ -13,28 +13,24 @@ function get_table()
 }
 function is_in_tab($tab, $login)
 {
-	foreach ($tab as $k => $v)
+	foreach ($tab as $v)
 		if ($v['login'] == $login)
 			return (true);
 	return (false);
 }
 
-if ($_POST['login'] == null || $_POST['passwd'] == null)
-	echo "ERROR\n";
-else if ($_POST['login'] == '' || $_POST['passwd'] == '')
-	echo "ERROR\n";
-else
-{
-	$tab = get_table();
-	if (is_in_tab($tab, $_POST['login']))
-		echo "ERROR\n";
-	else
-	{
-		$tab[] = array('login' => $_POST['login'], 'passwd' => hash('whirlpool', $_POST['passwd']));
-		if (!file_exists('../private'))
-			mkdir('../private');
-		file_put_contents('../private/passwd', serialize($tab));
-		echo "OK\n";
-	}
-}
+if (!isset($_POST) ||
+	!isset($_POST['login']) || !isset($_POST['passwd']) ||
+	$_POST['login'] == '' || $_POST['passwd'] == '')
+	exit ("ERROR\n");
+
+$tab = get_table();
+if (is_in_tab($tab, $_POST['login']))
+	exit ("ERROR\n");
+
+$tab[] = array('login' => $_POST['login'], 'passwd' => hash('whirlpool', $_POST['passwd']));
+if (!file_exists('../private'))
+	mkdir('../private');
+file_put_contents('../private/passwd', serialize($tab));
+echo "OK\n";
 ?>

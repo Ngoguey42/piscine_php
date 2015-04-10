@@ -14,15 +14,15 @@ function get_table()
 
 function change_pw($tab, $oldhash)
 {
-	for ($i = 0; $tab[$i] != NULL; $i++)
+	foreach ($tab as $k => $v)
 	{
-		$k = $tab[$i]['login'];
-		$v = $tab[$i]['passwd'];
-		if ($k == $_POST['login'])
+		if (isset($v['login']) &&
+			$v['login'] == $_POST['login'])
 		{
-			if ($v == $oldhash)
+			if (isset($v['passwd']) &&
+				$v['passwd'] == $oldhash)
 			{
-				$tab[$i]['passwd'] = hash('whirlpool', $_POST['newpw']);
+				$tab[$k]['passwd'] = hash('whirlpool', $_POST['newpw']);
 				file_put_contents('../private/passwd', serialize($tab));
 				return (true);
 			}
@@ -31,19 +31,14 @@ function change_pw($tab, $oldhash)
 	}
 	return (false);
 }
-
-if ($_POST['login'] == null || $_POST['oldpw'] == null || $_POST['newpw'] == null)
-	echo "ERROR1\n";
-else if ($_POST['login'] == '' || $_POST['oldpw'] == '' || $_POST['newpw'] == '')
-	echo "ERROR2\n";
-else
-{
-	$tab = get_table();
-	if ($tab === false)
-		echo "ERROR3\n";
-	else if (change_pw($tab, hash('whirlpool', $_POST['oldpw'])))
-		echo "OK\n";
-	else
-		echo "ERROR4\n";
-}
+if (!isset($_POST) ||
+	!isset($_POST['login']) || !isset($_POST['oldpw']) || !isset($_POST['newpw']) ||
+	$_POST['login'] == '' || $_POST['oldpw'] == '' || $_POST['newpw'] == '')
+		exit ("ERROR\n");
+$tab = get_table();
+if ($tab === false)
+	exit ("ERROR\n");
+if (change_pw($tab, hash('whirlpool', $_POST['oldpw'])))
+	exit ("OK\n");
+exit ("ERROR\n");
 ?>

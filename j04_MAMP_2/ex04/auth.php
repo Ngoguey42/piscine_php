@@ -18,8 +18,7 @@ function auth($login, $passwd)
 		{
 			if ($v['passwd'] === $passwd)
 				return (true);
-			else
-				break ;
+			break ;
 		}
 	}
 	return (false);
