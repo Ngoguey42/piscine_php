@@ -4,13 +4,15 @@ require_once 'Color.class.php';
 
 Class Vertex
 {
+	// * ATTRIBUTES ***************** //
 	private $_x = 0.;
 	private $_y = 0.;
 	private $_z = 0.;
 	private $_w = 1.;
 	private $_color = NULL;
 	static public $verbose = false;
-	
+
+	// * CTORS / DTORS ************** //
 	public function __construct(array $kwargs)
 	{
 		if (array_key_exists('x', $kwargs))
@@ -29,25 +31,26 @@ Class Vertex
 			echo $this.' constructed'.PHP_EOL;
 		return ;
 	}
-	
 	public function __destruct()
 	{
 		if (self::$verbose)
 			echo $this.' destructed'.PHP_EOL;
 	}
-	
+
+	// * GETTERS / SETTERS ********** //
+	public function getX(){ return $this->_x; }
+	public function getY(){ return $this->_y; }
+	public function getZ(){ return $this->_z; }
+	public function getW(){ return $this->_w; }
+	public function getColor(){ return $this->_color; }
+
 	public function setX($v){ $this->_x = $v; }
 	public function setY($v){ $this->_y = $v; }
 	public function setZ($v){ $this->_z = $v; }
 	public function setW($v){ $this->_w = $v; }
 	public function setColor(Color $v){ $this->_color = $v; }
 	
-	public function getX(){ return $this->_x; }
-	public function getY(){ return $this->_y; }
-	public function getZ(){ return $this->_z; }
-	public function getW(){ return $this->_w; }
-	public function getColor(){ return $this->_color; }
-	
+	// * MEMBER FUNCTIONS / METHODS * //	
 	public function __toString()
 	{
 		$ret = get_called_class().'( ';

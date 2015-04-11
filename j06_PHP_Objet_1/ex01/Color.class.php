@@ -1,38 +1,13 @@
 <?php
 Class Color
 {
+	// * ATTRIBUTES ***************** //
 	public static $verbose = false;
 	public $red = 0;
 	public $green = 0;
 	public $blue = 0;
 
-	public function add(Color $var)
-	{
-		if ($var === null)
-			return ;
-		return new Color(array('red' => $this->red + $var->red,
-							   'green' => $this->green + $var->green,
-							   'blue' => $this->blue + $var->blue));
-	}
-	
-	public function sub(Color $var)
-	{
-		if ($var === null)
-			return ;
-		return new Color(array('red' => $this->red - $var->red,
-							   'green' => $this->green - $var->green,
-							   'blue' => $this->blue - $var->blue));
-	}
-	
-	public function mult($var)
-	{
-		if ($var === null)
-			return ;
-		return new Color(array('red' => $this->red * $var,
-							   'green' => $this->green * $var,
-							   'blue' => $this->blue * $var));
-	}
-	
+	// * CTORS / DTORS ************** //
 	public function __construct(array $kwargs)
 	{
 		if (array_key_exists('red', $kwargs))
@@ -51,12 +26,37 @@ Class Color
 			echo $this.' constructed.'.PHP_EOL;
 		return ;
 	}
-	
 	public function __destruct()
 	{
 		if (self::$verbose)
 			echo $this.' destructed.'.PHP_EOL;
 	}
+
+	// * MEMBER FUNCTIONS / METHODS * //
+	public function add(Color $var)
+	{
+		return new Color(
+			array('red' => $this->red + $var->red,
+				'green' => $this->green + $var->green,
+				'blue' => $this->blue + $var->blue));
+	}
+	public function sub(Color $var)
+	{
+		return new Color(
+			array('red' => $this->red - $var->red,
+				'green' => $this->green - $var->green,
+				'blue' => $this->blue - $var->blue));
+	}
+	public function mult($var)
+	{
+		if (!is_numeric($var))
+			return (NULL);
+		return new Color(
+			array('red' => $this->red * $var,
+				'green' => $this->green * $var,
+				'blue' => $this->blue * $var));
+	}
+	
 	
 	public function __toString()
 	{
@@ -65,9 +65,9 @@ Class Color
 		foreach (get_object_vars($this) as $k => $v)
 		{
 			if ($k[0] == '_' and
-					method_exists(get_called_class(),
-					($funname = 'get'.ucfirst(substr($k, 1)))))
-				$str = $this->$funname();
+				method_exists(get_called_class(),
+						($funname = 'get'.ucfirst(substr($k, 1)))))
+							$str = $this->$funname();
 			else
 				$str = $v;
 			if (gettype($str) == "array")

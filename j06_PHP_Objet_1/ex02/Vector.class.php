@@ -4,12 +4,14 @@ require_once 'Vertex.class.php';
 
 Class Vector
 {
+	// * ATTRIBUTES ***************** //
 	private $_x = 0.;
 	private $_y = 0.;
 	private $_z = 0.;
 	private $_w = 0.;
 	static public $verbose = false;
-	
+
+	// * CTORS / DTORS ************** //
 	public function __construct(array $kwargs)
 	{
 		if (array_key_exists('orig', $kwargs))
@@ -23,18 +25,19 @@ Class Vector
 			echo $this.' constructed'.PHP_EOL;
 		return ;
 	}
-	
 	public function __destruct()
 	{
 		if (self::$verbose)
 			echo $this.' destructed'.PHP_EOL;
 	}
-	
+
+	// * GETTERS / SETTERS ********** //
 	public function getX(){ return $this->_x; }
 	public function getY(){ return $this->_y; }
 	public function getZ(){ return $this->_z; }
 	public function getW(){ return $this->_w; }
-	
+
+	// * MEMBER FUNCTIONS / METHODS * //
 	public function	magnitude()
 	{
 		return (sqrt(pow($this->_x, 2) + pow($this->_y, 2) +
@@ -105,8 +108,10 @@ Class Vector
 	}
 	public function cos($rhs)
 	{
-		return ($this->dotProduct($rhs) / ($this->magnitude() * $rhs->magnitude()));
+		return ($this->dotProduct($rhs) /
+			($this->magnitude() * $rhs->magnitude()));
 	}
+
 	
 	public function __toString()
 	{
