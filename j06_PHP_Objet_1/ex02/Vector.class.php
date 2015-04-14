@@ -18,6 +18,8 @@ Class Vector
 			$orig = $kwargs['orig'];
 		else
 			$orig = new Vertex(array('x' => 0, 'y' => 0, 'z' => 0));
+		if (!array_key_exists('dest', $kwargs))
+			exit("Error Vector.class : missing dest.");
 		$this->_x = $kwargs['dest']->getX() - $orig->getX();
 		$this->_y = $kwargs['dest']->getY() - $orig->gety();
 		$this->_z = $kwargs['dest']->getZ() - $orig->getz();
