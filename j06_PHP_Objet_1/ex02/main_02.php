@@ -17,6 +17,7 @@ Vertex::$verbose = False;
 print( Vector::doc() );
 Vector::$verbose = True;
 
+
 $vtxO = new Vertex( array( 'x' => 0.0, 'y' => 0.0, 'z' => 0.0 ) );
 $vtxX = new Vertex( array( 'x' => 1.0, 'y' => 0.0, 'z' => 0.0 ) );
 $vtxY = new Vertex( array( 'x' => 0.0, 'y' => 1.0, 'z' => 0.0 ) );

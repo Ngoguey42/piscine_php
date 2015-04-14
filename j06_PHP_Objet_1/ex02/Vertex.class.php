@@ -15,12 +15,15 @@ Class Vertex
 	// * CTORS / DTORS ************** //
 	public function __construct(array $kwargs)
 	{
-		if (array_key_exists('x', $kwargs))
-			$this->setX((double)$kwargs['x']);
-		if (array_key_exists('y', $kwargs))
-			$this->setY((double)$kwargs['y']);
-		if (array_key_exists('z', $kwargs))
-			$this->setZ((double)$kwargs['z']);
+		if (!array_key_exists('x', $kwargs))
+			exit("Error Vertex.class : missing X.");
+		$this->setX((double)$kwargs['x']);
+		if (!array_key_exists('y', $kwargs))
+			exit("Error Vertex.class : missing Y.");
+		$this->setY((double)$kwargs['y']);
+		if (!array_key_exists('z', $kwargs))
+			exit("Error Vertex.class : missing Z.");
+		$this->setZ((double)$kwargs['z']);
 		if (array_key_exists('w', $kwargs))
 			$this->setW((double)$kwargs['w']);
 		if (array_key_exists('color', $kwargs))
@@ -61,8 +64,8 @@ Class Vertex
 			{
 				$key = substr($k, 1);
 				if (method_exists(get_called_class(),
-					($funname = 'get'.ucfirst(substr($k, 1)))))
-					$val = $this->$funname();
+						($funname = 'get'.ucfirst(substr($k, 1)))))
+							$val = $this->$funname();
 				else
 					$val = $v;
 			}
