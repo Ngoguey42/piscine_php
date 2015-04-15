@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html><head>
+	<title>calc</title>
+	<meta charset="UTF-8">
+	<style>
+	</style>
+	<script type="text/javascript">
+	function getID(id)
+	{
+		if (document && document.getElementById)
+			return (document.getElementById(id));
+		return (null);
+	}
+	function warn(msg)
+	{
+		console.log(msg);
+		alert(msg);
+	}
+	function process()
+	{
+		var		rhs = getID('rhs');
+		var		op = getID('op');
+		var		lhs = getID('lhs');
+
+		if (!rhs || !op || !lhs)
+		{
+			warn("Error :(");
+			return ;
+		}
+		op = op.value;
+		lhs = lhs.value;
+		rhs = rhs.value;
+		if (!op ||
+			!lhs || !rhs ||
+			isNaN(lhs) || isNaN(rhs) ||
+			!lhs.match(/^\d+$/) || !rhs.match(/^\d+$/))
+		{
+			warn("Error :(");
+			return ;
+		}
+		lhs = parseInt(lhs);
+		rhs = parseInt(rhs);
+		if ((op == '/' || op == '%') &&
+			rhs == 0)
+		{
+			warn("It's over 9000!");
+			return ;
+		}
+		warn(eval(lhs + op + rhs));
+		return ;		
+	}
+	setInterval(function(){ alert("Please, use me..."); }, 30000);
+	</script>
+</head><body>
+	<input id="lhs" type="text" name="left hand side"></input>
+	<select id="op" name="operator">
+		<option value="+">+</option>
+		<option value="-">-</option>
+		<option value="*">*</option>
+		<option value="/">/</option>
+		<option value="%">%</option>
+	</select>
+	<input id="rhs" type="text" name="right hand side"></input>
+	<input type="submit" value="Try me!" onclick="process()"></input>
+</body></html>
