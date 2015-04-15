@@ -14,10 +14,10 @@ function deleteCookie(name)
 	return ;
 }
 
-function padZero(num, size)
+function padZero(num)
 {
 	var s = num + "";
-	while (s.length < size)
+	while (s.length < 5)
 		s = "0" + s;
 	return (s);
 }
@@ -29,6 +29,7 @@ function addDiv(str)
 	var div = document.createElement('div');
 	var ft_list = document.getElementById('ft_list');
 
+	div.setAttribute("name", 'todo' + padZero(i++));
 	div.addEventListener(
 		"click",
 		function()
@@ -36,12 +37,11 @@ function addDiv(str)
 			if (confirm('Really?'))
 			{
 				ft_list.removeChild(div);
-				console.log(div.getAttribute('name'));
 				deleteCookie(div.getAttribute('name'));
 			}
 		}, false);
 	div.innerHTML = str.replace('%3D', '=').replace('%3B', ';');
-	setCookie('todo' + padZero(i++, 3), str.replace('=', '%3D').replace(';', '%3B'), 7);
+	setCookie(div.getAttribute('name'), str.replace('=', '%3D').replace(';', '%3B'), 7);
 	ft_list.insertBefore(div, ft_list.firstChild);
 }
 
@@ -50,7 +50,6 @@ function newTodo()
 	var str = prompt("Enter the new todo");
 	if (str.length > 0)
 		addDiv(str);
-	console.log(document.cookie);
 }
 
 function getCookies()
@@ -71,12 +70,8 @@ function getCookies()
 var cookies = getCookies();
 var sortedKeys = Object.keys(cookies).sort();
 
-console.log(document.cookie);
-console.log(sortedKeys);
 for (var x in sortedKeys)
 {
 	deleteCookie(sortedKeys[x]);
 	addDiv(cookies[sortedKeys[x]]);
 }
-console.log(document.cookie);
-console.log(sortedKeys);
