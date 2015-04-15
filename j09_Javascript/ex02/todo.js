@@ -1,3 +1,14 @@
+// ************************************************************************** //
+//                                                                            //
+//                                                        :::      ::::::::   //
+//   todo.js                                            :+:      :+:    :+:   //
+//                                                    +:+ +:+         +:+     //
+//   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        //
+//                                                +#+#+#+#+#+   +#+           //
+//   Created: 2015/04/15 18:03:38 by ngoguey           #+#    #+#             //
+//   Updated: 2015/04/15 18:03:40 by ngoguey          ###   ########.fr       //
+//                                                                            //
+// ************************************************************************** //
 
 function setCookie(name,value,days)
 {	
@@ -61,7 +72,7 @@ function getCookies()
 	{
 		var toto = cookiesArray[x].split("=");
 
-		if (toto.length > 1)
+		if (toto.length > 1 && /todo\d+/.test(toto[0]))
 			array[toto[0].trim()] = toto[1].trim();		
 	}
 	return (array);
