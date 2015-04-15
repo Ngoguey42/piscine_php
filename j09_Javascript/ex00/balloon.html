@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html><head>
+	<title>balloon</title>
+	<meta charset="UTF-8">
+	<style>
+	#balloon
+	{
+		width: 200px;
+		height: 200px;
+		background-color: red;
+		border-radius: 100%;
+	}
+	</style>
+	<script type="text/javascript">
+	function balloonID()
+	{
+		if (document && document.getElementById)
+			return (document.getElementById('balloon'));
+		return (null);
+	}
+	function inflate()
+	{
+		var b = balloonID();
+		var s;
+
+		if (!b)
+			return ;
+		s = b.offsetWidth + 10;
+		if (s > 420)
+			s = 200;
+		if (b.style.background == "green")
+			b.style.background = "blue";
+		else if (b.style.background == "blue")
+			b.style.background = "red";
+		else
+			b.style.background = "green";
+		b.style.height = s + "px";
+		b.style.width = s + "px";
+	}
+	function deflate()
+	{
+		var b = balloonID();
+		var s;
+
+		if (!b)
+			return ;
+		s = b.offsetWidth  - 5;
+		if (s < 200)
+			s = 200;
+		if (b.style.background == "green")
+			b.style.background = "red";
+		else if (b.style.background == "blue")
+			b.style.background = "green";
+		else
+			b.style.background = "blue";
+		b.style.height = s + "px";
+		b.style.width = s + "px";
+	}
+	</script>
+</head><body>
+	<div id="balloon" onclick="inflate()" onMouseOut="deflate()"></div>
+</body></html>
